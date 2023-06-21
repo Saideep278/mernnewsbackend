@@ -6,8 +6,7 @@ import postRoutes from './routes/posts.js'
 import userRoutes from './routes/user.js'
 
 import dotenv from 'dotenv'
-import path from 'path';
-const __dirname = path.resolve()
+
 
 const app = express()
 app.use(bodyParser.json({ limit:"30mb",extended:true}))
@@ -16,10 +15,6 @@ app.use(cors())
 dotenv.config()
 
 
-app.use(express.static(path.join(__dirname,"./client/build")));
-
-app.get("*",function(req, res)  {
-  res.sendFile(path.join(__dirname,"./client/build/index.html"))}) ;
 
 
 // basic route or home route
